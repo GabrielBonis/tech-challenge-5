@@ -1,6 +1,6 @@
-# Tech Challenger 4 - Deep Learning
+# Tech Challenger  - Deep Learning
 
-[link do video de apresentacao](https://youtu.be/v03U9tBDizg)
+[link do video de apresentacao]()
 
 > Projeto para previsão de preços de ações com base em séries temporais históricas, utilizando uma rede neural recorrente (LSTM) implementada em TensorFlow/Keras. A solução inclui uma API RESTful para inferência e infraestrutura como código para deploy em ambiente cloud AWS.
 
@@ -83,8 +83,8 @@ Criar uma solução capaz de:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/tech-challenger-4.git
-cd tech-challenger-4
+git clone https://github.com/seu-usuario/tech-challenger-5.git
+cd tech-challenger-5
 
 # Ativar ambiente virtual
 python -m venv venv
