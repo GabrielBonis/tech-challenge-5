@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, HTTPException
 from typing import Optional
 from datetime import datetime
 from app.services.stock_data import get_stock_data
@@ -12,7 +12,7 @@ router = APIRouter()
 @router.get("/")
 def root():
     return {"message": "API ativa"}
-    
+
 @router.get("/stock-data-prediction")
 def stock_data_endpoint(
     symbol: str = Query(...),
@@ -28,9 +28,11 @@ def stock_data_endpoint(
             msg = fetch_and_save_s3(symbol, start_date, end_date_str, interval, period, auto_adjust)
             if 200 in msg:
                 return pipe_to_predict(symbol, start_date, end_date_str)
-        except  Exception as e:
+        except Exception as e:
             logger.error(f"Erro ao buscar dados do Yahoo Finance: {e}")
-            raise {"error": str(e)}
+            raise HTTPException(status_code=500, detail=str(e))
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Erro: {e}")
-        return {"error": str(e)}
+        raise HTTPException(status_code=500, detail=str(e))
