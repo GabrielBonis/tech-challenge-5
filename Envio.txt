@@ -1,0 +1,4 @@
+# Tech Challenger  - Deep Learning
+
+[link do repositório GITHUB] (https://github.com/GabrielBonis/tech-challenge-5)
+[link do video de apresentacao](https://youtu.be/KYCjLdmpokY)

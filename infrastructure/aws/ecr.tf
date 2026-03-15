@@ -4,9 +4,6 @@ resource "aws_ecr_repository" "lambda_repo" {
   image_tag_mutability = "MUTABLE" # Permite modificar tags de imagens (pode ser configurado como IMMUTABLE se necessário)
   force_delete         = true
 
-  # Tags opcionais para organização
-  tags = merge(
-    local.common_tags,
-  )
+  tags = local.common_tags
 }
 

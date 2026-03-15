@@ -6,17 +6,17 @@ resource "aws_lambda_function" "crawler_lambda" {
   package_type  = "Image"
   image_uri = "${aws_ecr_repository.lambda_repo.repository_url}:latest"
   timeout       = 900
-  memory_size   = 1024
+  memory_size   = 3008
   architectures = ["x86_64"]
 
-  tags = merge(
-    local.common_tags,
-  )
+  tags = local.common_tags
   
   environment {
     variables = {
       API_GATEWAY_ROOT_PATH = "/prod"
       STAGE                 = "prod"
+      BUCKET_NAME           = "${local.prefix}-raw-zone-${var.account}"
+      MODEL_PATH            = "/var/task/app/model/modelo_v1.h5"
     }
   }
 

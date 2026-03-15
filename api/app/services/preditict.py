@@ -1,8 +1,9 @@
+import os
 import numpy as np
 import pandas as pd
 from datetime import datetime
 from typing import Optional
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 from ta.momentum import RSIIndicator, StochasticOscillator, AwesomeOscillatorIndicator
 from ta.trend import MACD, CCIIndicator, ADXIndicator, EMAIndicator
 from ta.volatility import BollingerBands, AverageTrueRange
@@ -14,9 +15,8 @@ from app.config.logger import setup_logger
 
 logger = setup_logger("predictor")
 
-# Caminho do modelo
-MODEL_PATH = "api/app/model/modelo_v1.h5"
-BUCKET_NAME = "tech-challanger-4-prd-raw-zone-593793061865"
+MODEL_PATH = os.environ.get("MODEL_PATH", "/var/task/app/model/modelo_v1.h5")
+BUCKET_NAME = os.environ.get("BUCKET_NAME", "tech-challanger-5-default-raw-zone-851725318853")
 SEQ_LENGTH = 24 
 
 def create_sequences(data, seq_length):

@@ -16,8 +16,8 @@ locals {
   common_tags = {
     Project      = "tech-challanger-5"
     ManagedBy    = "Terraform"
-    Department   = "TI",
-    Provider     = "students",
+    Department   = "TI"
+    Provider     = "students"
     Owner        = "Data Engineering"
     BusinessUnit = "Data"
     Billing      = "Infrastructure"

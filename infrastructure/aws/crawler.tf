@@ -30,7 +30,5 @@ resource "aws_glue_crawler" "glue_crawler" {
     }
   })
 
-  tags = merge(
-    local.common_tags
-  )
+  tags = local.common_tags
 }

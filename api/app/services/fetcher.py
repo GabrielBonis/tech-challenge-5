@@ -1,3 +1,4 @@
+import os
 import json
 import requests
 import pandas as pd
@@ -16,8 +17,7 @@ from app.services.s3_utils import (
 
 logger = setup_logger("fetcher")
 
-# Exemplo de bucket e prefixo (pode vir de config/variável ambiente)
-BUCKET_NAME = "tech-challanger-4-prd-raw-zone-593793061865"
+BUCKET_NAME = os.environ.get("BUCKET_NAME", "tech-challanger-5-default-raw-zone-851725318853")
 
 
 def read_checkpoint_s3(bucket: str, key: str) -> Optional[Dict[str, datetime]]:

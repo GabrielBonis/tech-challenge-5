@@ -1,6 +1,6 @@
 # Tech Challenger  - Deep Learning
 
-[link do video de apresentacao]()
+[link do video de apresentacao](https://youtu.be/KYCjLdmpokY)
 
 > Projeto para previsão de preços de ações com base em séries temporais históricas, utilizando uma rede neural recorrente (LSTM) implementada em TensorFlow/Keras. A solução inclui uma API RESTful para inferência e infraestrutura como código para deploy em ambiente cloud AWS.
 
